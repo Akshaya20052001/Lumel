@@ -19,7 +19,10 @@ public class Lumel_Page extends Lumel_Base {
 	   public static By chekBox = By.xpath("(//input[@name='features[]'])[1]");
 	   public static By country = By.xpath("//input[@class='select2-search__field']");
 	   public static By register = By.xpath("//input[@id=\"hubspot-form-submit\"]");
-	 
+	   public static By popup_Decline = By.xpath("//a[text()='Decline']");
+	   public static By successful_Msg = By.xpath("//strong[text()='Registration Successful!']");
+	
+	
 	 
 
 }

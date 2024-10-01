@@ -1,5 +1,7 @@
 package org.Step_Def;
 
+import static org.junit.Assert.assertEquals;
+
 import org.Base_Class.Lumel_Base;
 import org.Pom.Lumel_Page;
 import org.openqa.selenium.By;
@@ -56,17 +58,22 @@ public class Lumel_Def extends Lumel_Base{
 		driver.findElement(Lumel_Page.company).sendKeys("EKO");
 		driver.findElement(Lumel_Page.inforiverUser).sendKeys("2");
 		driver.findElement(Lumel_Page.description).sendKeys("Hello");
-		driver.findElement(Lumel_Page.register).sendKeys("Hello");
-
+		Thread.sleep(5000);
+		driver.findElement(Lumel_Page.popup_Decline).click();
+		driver.findElement(Lumel_Page.register).click();
+		Thread.sleep(5000);
+		
 	}
 	@Then("User verify the Registration Successful Message")
 	public void user_verify_the_registration_successful_message() {
-//		WebElement submitButton = driver.findElement(By.xpath("//input[@id='hubspot-form-submit']"));
-//        submitButton.click();
-        
+		WebElement element = driver.findElement(Lumel_Page.successful_Msg); // Locate the element
+		String actualMessage = element.getText(); // Get the text from the element
+		assertEquals("Registration Successful!", actualMessage);
+		System.out.println("Registration Successful!");
 	}
 
 
+	
 
 
 }
